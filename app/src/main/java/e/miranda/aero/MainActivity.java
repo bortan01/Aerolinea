@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
+    public static double latitud;
+    public static double longitud;
+    public static String opcion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

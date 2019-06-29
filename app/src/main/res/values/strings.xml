@@ -28,5 +28,8 @@
     <string name="crear_aeropuerto">Registrar Aeropuerto</string>
     <string name="registrar_avion">Registrar Avion</string>
     <string name="registrar_vuelo">Registrar Vuelo</string>
+    <string name="registro_aeropuerto">Registro de Aeropueto</string>
+    <string name="nombre_aeropuerto">Nombre De Aropuerto</string>
+    <string name="title_activity_maps">Map</string>
 
 </resources>
