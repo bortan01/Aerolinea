@@ -17,4 +17,9 @@ public class HomeRootActivity extends AppCompatActivity {
         Intent intent = new Intent(this,RegistroAeropuertoActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);
     }
+
+    public void crearAVion(View view) {
+        Intent intent = new Intent(this,RegistroAvionActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+    }
 }

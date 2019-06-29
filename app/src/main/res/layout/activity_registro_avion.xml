@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistroAvionActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+       android:text="@string/registro_avion"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="casual"
+
+        />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/textView"
+        android:layout_marginTop="5sp"
+        android:layout_marginRight="12sp"
+        android:layout_marginLeft="12sp"
+        android:id="@+id/modelo">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/modelo_avion"
+            android:textStyle="bold"
+            android:fontFamily="casual"      />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5sp"
+        android:layout_marginRight="12sp"
+        android:layout_marginLeft="12sp"
+        android:layout_below="@id/modelo"
+        android:id="@+id/economicos">
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/cantidad_economico"
+            android:textStyle="bold"
+            android:fontFamily="casual"
+            android:digits="0123456789"
+            android:inputType="number"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/economicos"
+        android:layout_marginTop="5sp"
+        android:layout_marginRight="12sp"
+        android:layout_marginLeft="12sp"
+        android:id="@+id/ejecutivo">
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/cantidad_ejecutiva"
+            android:textStyle="bold"
+            android:fontFamily="casual"
+            android:digits="0123456789"
+            android:inputType="number"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/ejecutivo"
+        android:layout_marginTop="5sp"
+        android:layout_marginRight="12sp"
+        android:layout_marginLeft="12sp"
+        android:id="@+id/primera">
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/cantidad_primera"
+            android:textStyle="bold"
+            android:fontFamily="casual"
+            android:digits="0123456789"
+            android:inputType="number"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/boton4"
+        android:layout_marginLeft="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/primera"
+        android:onClick="guardarAvion"
+        android:text="@string/bonton_guardar"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:fontFamily="casual"
+        />
+
+    <Button
+        android:id="@+id/boton5"
+        android:layout_marginRight="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/primera"
+        android:onClick="Cancelar"
+        android:text="@string/boton_cancelar"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:fontFamily="casual"
+        />
+
+
+
+
+
+
+</RelativeLayout>

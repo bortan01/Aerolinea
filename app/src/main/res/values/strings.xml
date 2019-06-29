@@ -31,5 +31,13 @@
     <string name="registro_aeropuerto">Registro de Aeropueto</string>
     <string name="nombre_aeropuerto">Nombre De Aropuerto</string>
     <string name="title_activity_maps">Map</string>
+    <string name="registro_avion">Registro de Avion</string>
+    <string name="modelo_avion">Modelo</string>
+    <string name="cantidad_economico">Cantidad de Asientos Economicos</string>
+    <string name="cantidad_ejecutiva">Cantidad de Asientos Ejecutivos</string>
+    <string name="cantidad_primera">Cantidad de Asientos Primera Clase</string>
+    <string name="bonton_guardar">Guardar</string>
+    <string name="boton_cancelar">Cancelar</string>
+    <string name="ingrese_modelo">Ingrese Modelo</string>
 
 </resources>
