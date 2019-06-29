@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="e.miranda.aero.HomeRootActivity">
+
+
+    <Button
+        android:id="@+id/aeropuerto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/crear_aeropuerto"
+        android:theme="@style/RaisedButtonDark"
+        android:onClick="crearAerpuperto"
+        android:layout_marginLeft="12sp"
+        android:layout_marginRight="12sp"
+        android:layout_marginTop="5sp"
+        />
+
+    <Button
+        android:id="@+id/avion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/registrar_avion"
+        android:theme="@style/RaisedButtonDark"
+        android:onClick="crearAerpuperto"
+        android:layout_below="@id/aeropuerto"
+        android:layout_marginLeft="12sp"
+        android:layout_marginRight="12sp"
+        android:layout_marginTop="5sp"
+        />
+
+    <Button
+        android:id="@+id/vuelos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/registrar_vuelo"
+        android:theme="@style/RaisedButtonDark"
+        android:onClick="crearAerpuperto"
+        android:layout_below="@id/avion"
+        android:layout_marginLeft="12sp"
+        android:layout_marginRight="12sp"
+        android:layout_marginTop="5sp"
+        />
+
+
+
+</RelativeLayout>
