@@ -7,75 +7,131 @@
     android:layout_height="match_parent"
     tools:context=".RegistroVueloActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/registro_viajes"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:fontFamily="casual"
-
-        />
-
-    <EditText
-        android:id="@+id/fecha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-      android:layout_below="@id/textView"
-        android:hint="@string/fecha_vuelo"
-        android:inputType="date"
-        android:focusable="false"
-        android:clickable="true"
-        android:maxLines="1" />
-
-    <EditText
-        android:id="@+id/hora"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/fecha"
-        android:hint="@string/hora_vuelo"
-        android:inputType="date"
-        android:focusable="false"
-        android:clickable="true"
-        android:maxLines="1" />
 
 
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/registro_viajes"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="casual"
 
+                />
+            <EditText
+                android:id="@+id/fecha"
+                android:layout_width="188dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView"
+                android:clickable="true"
+                android:ems="5"
+                android:focusable="false"
+                android:hint="@string/fecha_vuelo"
+                android:inputType="date"
+                android:layout_marginLeft="12sp"
+                android:fontFamily="casual"
+                android:maxLines="1" />
 
+            <EditText
+                android:id="@+id/hora"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/fecha"
+          android:layout_below="@id/textView"
+                android:clickable="true"
+                android:focusable="false"
+                android:hint="@string/hora_vuelo"
+                android:inputType="date"
+                android:maxLines="1"
+                android:fontFamily="casual"
+                android:layout_marginRight="12sp"
+                />
 
-    <Button
-        android:id="@+id/boton4"
-        android:layout_marginLeft="12sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/primera"
-        android:onClick="guardarVuelo"
-        android:text="@string/bonton_guardar"
-        android:textAllCaps="false"
-        android:textStyle="bold"
-        android:fontFamily="casual"
-        />
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/hora"
+                android:layout_marginLeft="12sp"
+                android:layout_marginRight="120sp"
+                android:ems="12"
+                android:id="@+id/txtBuscar">
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/seleccionar_avion"
+                    android:fontFamily="casual"
 
-    <Button
-        android:id="@+id/boton5"
-        android:layout_marginRight="12sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/primera"
-        android:onClick="Cancelar"
-        android:text="@string/boton_cancelar"
-        android:textAllCaps="false"
-        android:textStyle="bold"
-        android:fontFamily="casual"
-        />
+                    />
+            </android.support.design.widget.TextInputLayout>
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnBuscar"
+                android:layout_below="@id/hora"
+                android:layout_alignParentEnd="true"
+                android:fontFamily="casual"
+                android:layout_marginRight="12sp"
+                android:textStyle="bold"
+                />
+            <Button
+                android:id="@+id/boton4"
+                android:layout_marginLeft="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/primera"
+                android:onClick="guardarVuelo"
+                android:text="@string/bonton_guardar"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:fontFamily="casual"
+                />
 
+            <Button
+                android:id="@+id/boton5"
+                android:layout_marginRight="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/primera"
+                android:onClick="Cancelar"
+                android:text="@string/boton_cancelar"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:fontFamily="casual"
+                />
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/txtBuscar"
+                android:layout_marginRight="12sp"
+                android:layout_marginLeft="12sp"
+                android:layout_above="@id/txtSeleccionado"
+                >
 
+            </ListView>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="12sp"
+                android:layout_marginRight="120sp"
+                android:ems="12"
+                android:id="@+id/txtSeleccionado">
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/seleccionar_avion"
+                    android:fontFamily="casual"
+
+                    />
+            </android.support.design.widget.TextInputLayout>
 
 
 

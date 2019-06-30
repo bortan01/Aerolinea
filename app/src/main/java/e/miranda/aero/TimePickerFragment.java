@@ -19,6 +19,7 @@ public class TimePickerFragment extends DialogFragment {
 
     public static TimePickerFragment newInstance(TimePickerDialog.OnTimeSetListener listener) {
         TimePickerFragment fragment = new TimePickerFragment();
+        fragment.setListener(listener);
         return fragment;
     }
 

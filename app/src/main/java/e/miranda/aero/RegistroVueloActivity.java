@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -34,6 +35,8 @@ public class RegistroVueloActivity extends AppCompatActivity {
         hora.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getBaseContext(), "on click " ,Toast.LENGTH_SHORT).show();
+
                 showTimePickerDialog();
             }
         });
@@ -43,26 +46,24 @@ public class RegistroVueloActivity extends AppCompatActivity {
 
 
     private void showDatePickerDialog() {
-        /*DatePickerFragment newFragment = new DatePickerFragment();
-        newFragment.show(getSupportFragmentManager(), "datePicker");*/
-
         DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 // +1 because january is zero
                 final String selectedDate = day + "-" + (month+1) + "-" + year;
+                Toast.makeText(getBaseContext(), "on date" ,Toast.LENGTH_SHORT).show();
                 fecha.setText(selectedDate);
             }
         });
         newFragment.show(getSupportFragmentManager(), "datePicker");
     }
     private void showTimePickerDialog(){
+        Toast.makeText(getBaseContext(), "show picker" ,Toast.LENGTH_SHORT).show();
         TimePickerFragment newFragment = TimePickerFragment.newInstance(new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                // +1 because january is zero
-               // final String selectedDate = day + "-" + (month+1) + "-" + year;
-                //fecha.setText(selectedDate);
+                final String selectTime = hourOfDay + " : " + minute;
+                hora.setText(selectTime);
             }
         });
         newFragment.show(getSupportFragmentManager(), "datePicker");

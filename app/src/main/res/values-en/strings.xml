@@ -6,4 +6,6 @@
     <string name="bonton_guardar">Guardar</string>
     <string name="registro_viajes">Registro de Viajes</string>
     <string name="hora_vuelo">Hora de Vuelo</string>
+    <string name="seleccionar_avion">Seleccionar Avioin</string>
+    <string name="btnBuscar">Buscar</string>
 </resources>
