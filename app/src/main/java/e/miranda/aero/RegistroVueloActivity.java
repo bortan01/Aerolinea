@@ -30,22 +30,11 @@ public class RegistroVueloActivity extends AppCompatActivity {
                 showDatePickerDialog();
             }
         });
+
         hora.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final Calendar c = Calendar.getInstance();
-                hour = c.get(Calendar.HOUR_OF_DAY);
-                minut = c.get(Calendar.MINUTE);
-
-                TimePickerDialog timePickerDialog = new TimePickerDialog(getBaseContext(), new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        hora.setText(hourOfDay +":"+minute);
-                    }
-                },5,2,false);
-                timePickerDialog.show();
-
-
+                showTimePickerDialog();
             }
         });
 
@@ -63,6 +52,17 @@ public class RegistroVueloActivity extends AppCompatActivity {
                 // +1 because january is zero
                 final String selectedDate = day + "-" + (month+1) + "-" + year;
                 fecha.setText(selectedDate);
+            }
+        });
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
+    private void showTimePickerDialog(){
+        TimePickerFragment newFragment = TimePickerFragment.newInstance(new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                // +1 because january is zero
+               // final String selectedDate = day + "-" + (month+1) + "-" + year;
+                //fecha.setText(selectedDate);
             }
         });
         newFragment.show(getSupportFragmentManager(), "datePicker");
