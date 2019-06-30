@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:text="@string/registrar_vuelo"
         android:theme="@style/RaisedButtonDark"
-        android:onClick="crearAerpuperto"
+        android:onClick="crearVuelo"
         android:layout_below="@id/avion"
         android:layout_marginLeft="12sp"
         android:layout_marginRight="12sp"

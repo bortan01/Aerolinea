@@ -4,4 +4,6 @@
     <string name="cantidad_ejecutiva">Cantidad de Asientos Ejecutivos</string>
     <string name="cantidad_primera">Cantidad de Asientos Primera Clase</string>
     <string name="bonton_guardar">Guardar</string>
+    <string name="registro_viajes">Registro de Viajes</string>
+    <string name="hora_vuelo">Hora de Vuelo</string>
 </resources>

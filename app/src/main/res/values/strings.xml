@@ -39,5 +39,8 @@
     <string name="bonton_guardar">Guardar</string>
     <string name="boton_cancelar">Cancelar</string>
     <string name="ingrese_modelo">Ingrese Modelo</string>
+    <string name="registro_viajes">Registro de Viajes</string>
+    <string name="fecha_vuelo">Fecha de Vuelo</string>
+    <string name="hora_vuelo">Hora de Vuelo</string>
 
 </resources>

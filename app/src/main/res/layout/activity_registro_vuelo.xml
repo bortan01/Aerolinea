@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistroVueloActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/registro_viajes"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="casual"
+
+        />
+
+    <EditText
+        android:id="@+id/fecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+      android:layout_below="@id/textView"
+        android:hint="@string/fecha_vuelo"
+        android:inputType="date"
+        android:focusable="false"
+        android:clickable="true"
+        android:maxLines="1" />
+
+    <EditText
+        android:id="@+id/hora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fecha"
+        android:hint="@string/hora_vuelo"
+        android:inputType="date"
+        android:focusable="false"
+        android:clickable="true"
+        android:maxLines="1" />
+
+
+
+
+
+    <Button
+        android:id="@+id/boton4"
+        android:layout_marginLeft="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/primera"
+        android:onClick="guardarVuelo"
+        android:text="@string/bonton_guardar"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:fontFamily="casual"
+        />
+
+    <Button
+        android:id="@+id/boton5"
+        android:layout_marginRight="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/primera"
+        android:onClick="Cancelar"
+        android:text="@string/boton_cancelar"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:fontFamily="casual"
+        />
+
+
+
+
+
+
+</RelativeLayout>
