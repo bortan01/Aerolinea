@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.preference.PreferenceActivity;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -20,12 +21,14 @@ public  class conexion {
     AsyncHttpClient client ;
     String url ;
     Context context;
+    public static ArrayList<Aeropuerto> listaDatos;
 
     public conexion(Context context) {
         client =  new AsyncHttpClient();
        //url = "https://www.ma14049.comues.com/proyecto/conexion.php";
         url = "http://192.168.56.1/proyecto/conexion.php";
         this.context = context;
+        listaDatos = new ArrayList<>();
     }
 
 
@@ -77,6 +80,42 @@ public  class conexion {
             }
         });
         return  elementos;
+    }
+
+    public void obteneAeropuerto(){
+        RequestParams parametros = new RequestParams();
+        parametros.put("accion","obtenerListaAeropuerto" );
+        final ArrayList<Avion> elementos = new ArrayList<>();
+
+        client.post(url, parametros, new AsyncHttpResponseHandler() {
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                if(statusCode ==200){
+                    try {
+
+                        JSONArray jsonArray = new JSONArray(new String( responseBody));
+                        for (int i = 0 ; i<jsonArray.length(); i++){
+
+                            Aeropuerto aero = new Aeropuerto();
+                            aero.setIdAerppuerto(jsonArray.getJSONObject(i).getInt("idAeropuerto"));
+                            aero.setNombre(jsonArray.getJSONObject(i).getString("nombre"));
+                            aero.setLongitud(jsonArray.getJSONObject(i).getDouble("longitud"));
+                            aero.setLatiutd(jsonArray.getJSONObject(i).getDouble("latitud"));
+                            MainActivity.listaDatos.add(aero);
+                            Toast.makeText(context, "ciclo " + i,Toast.LENGTH_SHORT).show();
+                        }
+                    }catch (Exception e){
+                        msg("Problema: " + e.getMessage());
+                    }
+                }
+            }
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                msg("No hay contacto con la BD");
+            }
+        });
+
     }
 
     private void msg(String texto) {

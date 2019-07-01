@@ -34,51 +34,35 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        //if(MainActivity.opcion.equals("verdatos")){
-        /*obtenerDatosJSON("");
-        Toast.makeText(this,"dfadf", Toast.LENGTH_SHORT).show();
+   /*    if(MainActivity.opcion.equals("obtenerCoordenada")){
+           LatLng ubicacion = new LatLng(13.637397,-88.787026);
+           mMap.addMarker(new MarkerOptions()
+                   .position(ubicacion)
+                   .title("mi ubicacion")
+                   .draggable(true));
 
-        for(Datos d: listaDatos){
-            LatLng ubicacion = new LatLng(d.getLa(),d.getLo());
-            mMap.addMarker(new MarkerOptions()
-                    .position(ubicacion)
-                    .title(d.getNombre() + " " + d.getApellido()));
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ubicacion,8));
-        }*/
-       /* }else{
-            LatLng ubicacion = new LatLng(13.637397,-88.787026);
-            mMap.addMarker(new MarkerOptions()
-                    .position(ubicacion)
-                    .title("mi ubicacion")
-                    .draggable(true));
+           mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ubicacion,8));
+           mMap.setOnMarkerClickListener(this);
+           mMap.setOnMarkerDragListener(this);
+       }else{*/
+           conexion con = new conexion(this);
+           con.obteneAeropuerto();
 
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ubicacion,8));
-            mMap.setOnMarkerClickListener(this);
-            mMap.setOnMarkerDragListener(this);
-        }*/
 
-        LatLng ubicacion = new LatLng(13.637397,-88.787026);
-        mMap.addMarker(new MarkerOptions()
-                .position(ubicacion)
-                .title("mi ubicacion")
-                .draggable(true));
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ubicacion,8));
-        mMap.setOnMarkerClickListener(this);
-        mMap.setOnMarkerDragListener(this);
+           for(Aeropuerto d: MainActivity.listaDatos){
+               LatLng ubicacion = new LatLng(d.getLatiutd(),d.getLongitud());
+               mMap.addMarker(new MarkerOptions()
+                       .position(ubicacion)
+                       .title(d.getNombre()));
+               mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ubicacion,8));
+           }
+     //  }
+
 
     }
 

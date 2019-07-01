@@ -44,6 +44,7 @@ public class RegistroAeropuertoActivity extends AppCompatActivity {
     }
 
     public void obtener(View view) {
+        MainActivity.opcion= "obtenerCoordenada";
         Intent intent = new Intent(this,MapsActivity.class);
         startActivityForResult(intent,1);
     }

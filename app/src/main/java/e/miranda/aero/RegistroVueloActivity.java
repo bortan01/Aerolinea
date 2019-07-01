@@ -2,6 +2,7 @@ package e.miranda.aero;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -91,4 +92,9 @@ public class RegistroVueloActivity extends AppCompatActivity {
     }
 
 
+    public void mapa(View view) {
+        MainActivity.opcion= "obtenerCoordenada";
+        Intent intent = new Intent(this,MapsActivity.class);
+        startActivityForResult(intent,1);
+    }
 }
