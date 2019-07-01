@@ -5,25 +5,32 @@ import android.app.TimePickerDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class RegistroVueloActivity extends AppCompatActivity {
 
     EditText fecha ,hora;
     int minut, second , hour;
+    Spinner comboAvion;
+    conexion conexion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_vuelo);
-
+        conexion = new conexion(this);
         fecha = findViewById(R.id.fecha);
         hora = findViewById(R.id.hora);
+        comboAvion = findViewById(R.id.comboAvion);
+        llenarComboAvion();
 
         fecha.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,4 +81,14 @@ public class RegistroVueloActivity extends AppCompatActivity {
 
     public void Cancelar(View view) {
     }
+
+    public  void llenarComboAvion(){
+        String[] opciones = {"Mayuscula", "Minuscula"};
+        ArrayList<Avion> datos = conexion.obtenerAvion();
+      //  ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,opciones);
+        ArrayAdapter<Avion>adapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item,datos);
+        comboAvion.setAdapter(adapter);
+    }
+
+
 }
