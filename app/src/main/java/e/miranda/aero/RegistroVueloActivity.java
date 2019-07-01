@@ -25,7 +25,8 @@ public class RegistroVueloActivity extends AppCompatActivity {
     conexion conexion;
     EditText txtDespeje, txtAterrisaje;
     Button despeje, aterrisaje;
-
+    int idDespeje;
+    int idAterrisaje;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +66,7 @@ public class RegistroVueloActivity extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 // +1 because january is zero
-                final String selectedDate = day + "-" + (month+1) + "-" + year;
+                final String selectedDate = year + "-" + (month+1) + "-" + day;
                 Toast.makeText(getBaseContext(), "on date" ,Toast.LENGTH_SHORT).show();
                 fecha.setText(selectedDate);
             }
@@ -77,7 +78,7 @@ public class RegistroVueloActivity extends AppCompatActivity {
         TimePickerFragment newFragment = TimePickerFragment.newInstance(new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                final String selectTime = hourOfDay + " : " + minute;
+                final String selectTime = hourOfDay + ":" + minute + ":00";
                 hora.setText(selectTime);
             }
         });
@@ -93,7 +94,7 @@ public class RegistroVueloActivity extends AppCompatActivity {
     public  void llenarComboAvion(){
         String[] opciones = {"Mayuscula", "Minuscula"};
         ArrayList<Avion> datos = conexion.obtenerAvion();
-      //  ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,opciones);
+        datos.add(new Avion(0,1,2,3,"Seleccione un Avion"));
         ArrayAdapter<Avion>adapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item,datos);
         comboAvion.setAdapter(adapter);
     }
@@ -108,8 +109,13 @@ public class RegistroVueloActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode ==1){
             if(resultCode == RESULT_OK){
-                txtDespeje.setText("" + MainActivity.despeje);
-                txtAterrisaje.setText("" + MainActivity.aterrisaje);
+                if(txtDespeje.getText().toString().equals("")){
+                    txtDespeje.setText("" + MainActivity.vuelo);
+                    idDespeje = MainActivity.idVuelo;
+                }else{
+                    txtAterrisaje.setText("" + MainActivity.vuelo);
+                    idAterrisaje = MainActivity.idVuelo;
+                }
             }
         }
 

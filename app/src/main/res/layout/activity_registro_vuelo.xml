@@ -167,7 +167,63 @@ android:layout_marginBottom="5sp"
         android:layout_toEndOf="@id/despeje"
         android:maxLines="1" />
 
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5sp"
+        android:layout_marginRight="12sp"
+        android:layout_marginLeft="12sp"
+        android:layout_below="@id/txtAterrisaje"
+        android:id="@+id/economicos">
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/precio_economico"
 
+            android:fontFamily="casual"
+
+            android:inputType="numberDecimal"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/economicos"
+        android:layout_marginTop="5sp"
+        android:layout_marginRight="12sp"
+        android:layout_marginLeft="12sp"
+        android:id="@+id/ejecutivo">
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/precio_primera"
+            android:fontFamily="casual"
+
+            android:inputType="numberDecimal"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/ejecutivo"
+        android:layout_marginTop="5sp"
+        android:layout_marginRight="12sp"
+        android:layout_marginLeft="12sp"
+        android:id="@+id/primera">
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/primera_clase"
+            android:fontFamily="casual"
+
+            android:inputType="numberDecimal"
+            />
+    </android.support.design.widget.TextInputLayout>
 
 
 </RelativeLayout>

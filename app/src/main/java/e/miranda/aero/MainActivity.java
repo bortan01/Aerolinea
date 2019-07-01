@@ -12,10 +12,9 @@ public class MainActivity extends AppCompatActivity {
     public static double latitud;
     public static double longitud;
     public static String opcion;
-    public static String aterrisaje;
-    public static String despeje;
-    public static int  idAterrisaje;
-    public static int idDespeje;
+    public static String vuelo;
+    public static int  idVuelo;
+
 
     public static ArrayList<Aeropuerto> listaAeropuertos;
     conexion con ;

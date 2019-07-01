@@ -103,7 +103,7 @@ public  class conexion {
                             aero.setLongitud(jsonArray.getJSONObject(i).getDouble("longitud"));
                             aero.setLatiutd(jsonArray.getJSONObject(i).getDouble("latitud"));
                             MainActivity.listaAeropuertos.add(aero);
-                            Toast.makeText(context, "ciclo " + aero.getNombre(),Toast.LENGTH_SHORT).show();
+                //            Toast.makeText(context, "ciclo " + aero.getNombre(),Toast.LENGTH_SHORT).show();
                         }
                     }catch (Exception e){
                         msg("Problema: " + e.getMessage());

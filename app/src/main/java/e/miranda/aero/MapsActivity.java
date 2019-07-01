@@ -55,7 +55,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                LatLng ubicacion = new LatLng(d.getLatiutd(),d.getLongitud());
                mMap.addMarker(new MarkerOptions()
                        .position(ubicacion)
-                       .title(d.getNombre() + "este es el bombre"));
+                       .title(d.toString())).setTag(d.idAerppuerto);
+
+
                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ubicacion,8));
                mMap.setOnMarkerClickListener(this);
                mMap.setOnMarkerDragListener(this);
@@ -70,7 +72,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Toast.makeText(this, "estas en onMarclick ",Toast.LENGTH_SHORT).show();
         MainActivity.latitud = marker.getPosition().latitude;
         MainActivity.longitud = marker.getPosition().longitude;
-        MainActivity.despeje = marker.getTitle();
+        MainActivity.vuelo = marker.getTitle();
+        MainActivity.idVuelo = (int)marker.getTag();
+
 
         setResult(RESULT_OK);
         finish();
@@ -91,28 +95,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMarkerDragEnd(Marker marker) {
 
     }
-
-
-    /*public void obtenerDatosJSON (String responde){
-        listaDatos.clear();
-        try {
-            JSONArray jsonArray = new JSONArray(responde);
-            for (int i = 0 ; i<jsonArray.length(); i++){
-                listaDatos.add(new Datos(
-                        jsonArray.getJSONObject(i).getInt("iddatos"),
-                        jsonArray.getJSONObject(i).getString("nombre"),
-                        jsonArray.getJSONObject(i).getString("apellido"),
-                        jsonArray.getJSONObject(i).getDouble("la"),
-                        jsonArray.getJSONObject(i).getDouble("lo")
-                ));
-            }
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }*/
-
-
 }
 
 
