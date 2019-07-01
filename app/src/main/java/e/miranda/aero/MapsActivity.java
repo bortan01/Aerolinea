@@ -38,7 +38,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-   /*    if(MainActivity.opcion.equals("obtenerCoordenada")){
+       if(MainActivity.opcion.equals("obtenerCoordenada")){
            LatLng ubicacion = new LatLng(13.637397,-88.787026);
            mMap.addMarker(new MarkerOptions()
                    .position(ubicacion)
@@ -48,20 +48,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ubicacion,8));
            mMap.setOnMarkerClickListener(this);
            mMap.setOnMarkerDragListener(this);
-       }else{*/
+       }else if(MainActivity.opcion.equals("obtenerAeropuerto")){
            conexion con = new conexion(this);
            con.obteneAeropuerto();
-
-
-
-           for(Aeropuerto d: MainActivity.listaDatos){
+           for(Aeropuerto d: MainActivity.listaAeropuertos){
                LatLng ubicacion = new LatLng(d.getLatiutd(),d.getLongitud());
                mMap.addMarker(new MarkerOptions()
                        .position(ubicacion)
-                       .title(d.getNombre()));
+                       .title(d.getNombre() + "este es el bombre"));
                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ubicacion,8));
+               mMap.setOnMarkerClickListener(this);
+               mMap.setOnMarkerDragListener(this);
            }
-     //  }
+       }
 
 
     }
@@ -71,6 +70,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Toast.makeText(this, "estas en onMarclick ",Toast.LENGTH_SHORT).show();
         MainActivity.latitud = marker.getPosition().latitude;
         MainActivity.longitud = marker.getPosition().longitude;
+        MainActivity.despeje = marker.getTitle();
+
         setResult(RESULT_OK);
         finish();
         return true;

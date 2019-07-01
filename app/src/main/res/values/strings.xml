@@ -44,5 +44,9 @@
     <string name="hora_vuelo">Hora de Vuelo</string>
     <string name="seleccionar_avion">Seleccionar Avion</string>
     <string name="btnBuscar">Buscar</string>
+    <string name="despeje">Despeje</string>
+    <string name="despeje_aeropuerto">Aeropuerto de Despeje</string>
+    <string name="aterrisaje">Aterrisaje</string>
+    <string name="despeje_aterrisaje">Aeropuerto de Aterrisaje</string>
 
 </resources>

@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -22,6 +23,8 @@ public class RegistroVueloActivity extends AppCompatActivity {
     int minut, second , hour;
     Spinner comboAvion;
     conexion conexion;
+    EditText txtDespeje, txtAterrisaje;
+    Button despeje, aterrisaje;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,10 @@ public class RegistroVueloActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registro_vuelo);
         conexion = new conexion(this);
         fecha = findViewById(R.id.fecha);
+        txtAterrisaje = findViewById(R.id.txtAterrisaje);
+        txtDespeje = findViewById(R.id.txtDespeje);
+        despeje = findViewById(R.id.despeje);
+        aterrisaje = findViewById(R.id.aterrisaje);
         hora = findViewById(R.id.hora);
         comboAvion = findViewById(R.id.comboAvion);
         llenarComboAvion();
@@ -93,8 +100,18 @@ public class RegistroVueloActivity extends AppCompatActivity {
 
 
     public void mapa(View view) {
-        MainActivity.opcion= "obtenerCoordenada";
+        MainActivity.opcion= "obtenerAeropuerto";
         Intent intent = new Intent(this,MapsActivity.class);
         startActivityForResult(intent,1);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode ==1){
+            if(resultCode == RESULT_OK){
+                txtDespeje.setText("" + MainActivity.despeje);
+                txtAterrisaje.setText("" + MainActivity.aterrisaje);
+            }
+        }
+
     }
 }

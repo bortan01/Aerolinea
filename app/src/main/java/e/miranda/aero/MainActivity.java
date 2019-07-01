@@ -12,12 +12,20 @@ public class MainActivity extends AppCompatActivity {
     public static double latitud;
     public static double longitud;
     public static String opcion;
-    public static ArrayList<Aeropuerto> listaDatos;
+    public static String aterrisaje;
+    public static String despeje;
+    public static int  idAterrisaje;
+    public static int idDespeje;
+
+    public static ArrayList<Aeropuerto> listaAeropuertos;
+    conexion con ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        listaDatos = new ArrayList<>();
+        listaAeropuertos = new ArrayList<>();
+        con = new conexion(this);
+        con.obteneAeropuerto();
     }
 
     public void goHome(View view) {
