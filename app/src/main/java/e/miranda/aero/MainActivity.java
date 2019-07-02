@@ -33,5 +33,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goCreateAccount(View view) {
+        Intent intent = new Intent(this,RegistroUsiarioActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
     }
 }

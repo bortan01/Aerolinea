@@ -1,9 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistroUsiarioActivity">
+    tools:context=".RegistroAvionActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/registro_usuario"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="casual"
+
+        />
+
+        <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/textView"
+        android:layout_marginTop="5sp"
+        android:layout_marginRight="12sp"
+        android:layout_marginLeft="12sp"
+        android:id="@+id/nombreUsiarop">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/nombre"
+            android:textStyle="bold"
+            android:fontFamily="casual"      />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/nombreUsiarop"
+        android:layout_marginTop="5sp"
+        android:layout_marginRight="12sp"
+        android:layout_marginLeft="12sp"
+        android:id="@+id/apellidoUsu">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/apellido"
+            android:textStyle="bold"
+            android:fontFamily="casual"      />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/apellidoUsu"
+        android:layout_marginTop="5sp"
+        android:layout_marginRight="12sp"
+        android:layout_marginLeft="12sp"
+        android:id="@+id/nacionalidad">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/nacionalidad"
+            android:textStyle="bold"
+            android:fontFamily="casual"      />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5sp"
+        android:layout_marginRight="12sp"
+        android:layout_marginLeft="12sp"
+        android:layout_below="@id/nacionalidad"
+        android:id="@+id/edad">
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/edad"
+            android:textStyle="bold"
+            android:fontFamily="casual"
+            android:digits="0123456789"
+            android:inputType="number"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edad"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal"
+        >
+        <RadioButton
+            android:id="@+id/masculino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/masculino"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"
+
+            />
+
+        <RadioButton
+            android:id="@+id/invitadoR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/masculino"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/femenino"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"
+            />
+
+    </RadioGroup>
+
+
+
+    <Button
+        android:id="@+id/boton4"
+        android:layout_marginLeft="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pass"
+        android:onClick="guardarAvion"
+        android:text="@string/bonton_guardar"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:fontFamily="casual"
+        />
+
+    <Button
+        android:id="@+id/boton5"
+        android:layout_marginRight="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/pass"
+        android:onClick="Cancelar"
+        android:text="@string/boton_cancelar"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:fontFamily="casual"
+        />
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5sp"
+        android:layout_marginRight="12sp"
+        android:layout_marginLeft="12sp"
+        android:layout_below="@id/radioGroup"
+        android:id="@+id/User">
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/nombre_usuario"
+            android:textStyle="bold"
+            android:fontFamily="casual"
+
+            android:inputType="textPersonName"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5sp"
+        android:layout_marginRight="12sp"
+        android:layout_marginLeft="12sp"
+        android:layout_below="@id/User"
+        android:id="@+id/pass">
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_password"
+            android:textStyle="bold"
+            android:fontFamily="casual"
+            android:digits="0123456789"
+            android:inputType="textPersonName"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+
+
+
+
+</RelativeLayout>

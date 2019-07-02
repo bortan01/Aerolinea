@@ -15,4 +15,12 @@
     <string name="precio_economico">Precio de Clase Economica</string>
     <string name="precio_primera">Precio Clase Ejecutiva</string>
     <string name="primera_clase">Precio de Primera Clase</string>
+    <string name="registro_usuario">Registro de Pasajero</string>
+    <string name="nombre_usuario">Nombre de Usuario</string>
+    <string name="nombre">nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="nacionalidad">Nacionalidad</string>
+    <string name="edad">Edad</string>
+    <string name="masculino">Masculino</string>
+    <string name="femenino">Femenino</string>
 </resources>
