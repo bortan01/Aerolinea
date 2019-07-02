@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     public static String opcion;
     public static String vuelo;
     public static int  idVuelo;
-    public static Pasajero pasajero ;
+    public static  Pasajero pasajero ;
     TextInputLayout user,pass;
     AsyncHttpClient client ;
     String url ;
@@ -65,13 +65,14 @@ public class MainActivity extends AppCompatActivity {
             parametros.put("pass", pass.getEditText().getText().toString());
             con.obtenerLogin(parametros);
 
-            Toast.makeText(this,"nivel " +pasajero.getNivel(),Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"nivel es" +pasajero.getNivel(),Toast.LENGTH_SHORT).show();
 
             if(pasajero.getNivel() ==1){
                 Intent intent = new Intent(this,HomeRootActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
             }else if(pasajero.getNivel() == 0){
-                Intent intent = new Intent(this,HomeRootActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                Toast.makeText(this,"nivel es pasajero " +pasajero.getNivel(),Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this,HomePasajeroActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
             }
 

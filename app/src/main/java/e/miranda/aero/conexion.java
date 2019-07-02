@@ -137,7 +137,7 @@ public  class conexion {
     public void obtenerLogin(RequestParams parametros){
 
         parametros.put("accion","consultarLogin" );
-  
+
         client.post(url, parametros, new AsyncHttpResponseHandler() {
 
             @Override
@@ -150,10 +150,11 @@ public  class conexion {
                             MainActivity.pasajero = new Pasajero();
                             MainActivity.pasajero.setId_pasajero(jsonArray.getJSONObject(i).getInt("id_pasajero"));
                             MainActivity.pasajero.setNivel(jsonArray.getJSONObject(i).getInt("nivel"));
-                                      Toast.makeText(context, "pasajero existe " + MainActivity.pasajero.getNivel(),Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "el nivel dentro de try es " + MainActivity.pasajero.getNivel(),Toast.LENGTH_SHORT).show();
+
                         }
                     }catch (Exception e){
-                        msg("Problema: " + e.getMessage());
+                        msg("Problema obtener login: " + e.getMessage());
                     }
                 }
             }
@@ -162,10 +163,12 @@ public  class conexion {
                 msg("No hay contacto con la BD");
             }
         });
-
+        Toast.makeText(context, "el nivel ahora es  " + MainActivity.pasajero.getNivel(),Toast.LENGTH_SHORT).show();
     }
 
 
+public  void mandarNivel(int nivel){
 
+}
 
 }

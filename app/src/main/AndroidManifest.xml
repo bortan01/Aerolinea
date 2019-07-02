@@ -40,7 +40,9 @@
         <activity android:name=".RegistroAvionActivity" />
         <activity android:name=".RegistroVueloActivity" />
         <activity android:name=".RegistroUsiarioActivity" />
-        <activity android:name=".HomePasajeroActivity"></activity>
+        <activity android:name=".HomePasajeroActivity" />
+        <activity android:name=".RegistroViajeActivity" />
+        <activity android:name=".CustomActivity"></activity>
     </application>
 
 </manifest>
