@@ -23,14 +23,14 @@
         android:textColor="@color/colorPrimary"
         />
     <ImageButton
-        android:id="@+id/btnEditar"
+        android:id="@+id/btnReservar"
         android:layout_marginLeft="20sp"
         android:layout_marginTop="23sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@mipmap/ic_plain"
-        android:onClick="onEditar"
-        android:layout_toEndOf="@id/fecha"
+        android:onClick="onReservar"
+        android:layout_toEndOf="@id/fechaCustom"
         />
     <TextView
         android:id="@+id/apellido"
@@ -59,7 +59,7 @@
         android:textColor="@color/colorAccent"
         />
     <TextView
-        android:id="@+id/fecha"
+        android:id="@+id/fechaCustom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/nombre"
@@ -75,10 +75,10 @@
 
         />
     <TextView
-        android:id="@+id/hora"
+        android:id="@+id/horaCustom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-         android:layout_below="@id/fecha"
+         android:layout_below="@id/fechaCustom"
         android:layout_marginBottom="2dp"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="2dp"
@@ -91,7 +91,7 @@
         />
 
     <TextView
-        android:id="@+id/avion"
+        android:id="@+id/avionCustom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/apellido"

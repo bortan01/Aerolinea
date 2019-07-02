@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class Adaptador extends ArrayAdapter<Vuelo> {
@@ -18,22 +20,19 @@ public class Adaptador extends ArrayAdapter<Vuelo> {
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Datos datos = getItem(position);
+        Vuelo datos = getItem(position);
         if(convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.activity_custom,parent,false);
-            TextView nombre = convertView.findViewById(R.id.nombre);
-            TextView apellido = convertView.findViewById(R.id.apellido);
-            TextView genero = convertView.findViewById(R.id.genero);
-            TextView edad = convertView.findViewById(R.id.edad);
-            TextView telefono = convertView.findViewById(R.id.telefono);
-            ImageButton btnEdiitar = convertView.findViewById(R.id.btnEditar);
+            TextView fecha = convertView.findViewById(R.id.fechaCustom);
+            TextView hora = convertView.findViewById(R.id.horaCustom);
+            TextView avion = convertView.findViewById(R.id.avionCustom);
+            ImageButton btnReservar = convertView.findViewById(R.id.btnReservar);
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            DateFormat dateFormat2 = new SimpleDateFormat("HH:mm:ss");
+            fecha.setText(""+dateFormat.format(datos.getFecha()));
+            hora.setText(""+dateFormat2.format(datos.getFecha()));
+            avion.setText("" + datos.getModelo());
 
-            nombre.setText(datos.getNombre());
-            apellido.setText(datos.getApellido());
-            genero.setText(datos.getGenero());
-            edad.setText(String.valueOf(datos.getEdad()));
-            telefono.setText(datos.getTelefono());
-            btnEdiitar.setTag(datos.getIddatos());
             return  convertView;
         }
         return  convertView;
