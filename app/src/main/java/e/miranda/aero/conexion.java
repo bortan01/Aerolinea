@@ -134,4 +134,37 @@ public  class conexion {
         dialogo.show();
     }
 
+    public void obtenerLogin(RequestParams parametros){
+
+        parametros.put("accion","consultarLogin" );
+        final ArrayList<Avion> elementos = new ArrayList<>();
+
+        client.post(url, parametros, new AsyncHttpResponseHandler() {
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                if(statusCode ==200){
+                    try {
+
+                        JSONArray jsonArray = new JSONArray(new String( responseBody));
+                        for (int i = 0 ; i<jsonArray.length(); i++){
+                            MainActivity.pasajero = new Pasajero();
+                            MainActivity.pasajero.setId_pasajero(jsonArray.getJSONObject(i).getInt("id_pasajero"));
+                            MainActivity.pasajero.setNivel(jsonArray.getJSONObject(i).getInt("nivel"));
+                                      Toast.makeText(context, "pasajero existe " + MainActivity.pasajero.getNivel(),Toast.LENGTH_SHORT).show();
+                        }
+                    }catch (Exception e){
+                        msg("Problema: " + e.getMessage());
+                    }
+                }
+            }
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                msg("No hay contacto con la BD");
+            }
+        });
+
+    }
+
+
 }

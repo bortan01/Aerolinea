@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistroAvionActivity">
+    tools:context=".RegistroUsiarioActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -120,7 +120,7 @@
             />
 
         <RadioButton
-            android:id="@+id/invitadoR"
+            android:id="@+id/femenino"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/masculino"
@@ -142,7 +142,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/pass"
-        android:onClick="guardarAvion"
+        android:onClick="guardarPasajero"
         android:text="@string/bonton_guardar"
         android:textAllCaps="false"
         android:textStyle="bold"
@@ -197,8 +197,8 @@
             android:hint="@string/hint_password"
             android:textStyle="bold"
             android:fontFamily="casual"
-            android:digits="0123456789"
-            android:inputType="textPersonName"
+
+            android:inputType="textPassword"
             />
     </android.support.design.widget.TextInputLayout>
 
