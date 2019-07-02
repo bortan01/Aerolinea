@@ -166,6 +166,46 @@ public  class conexion {
         Toast.makeText(context, "el nivel ahora es  " + MainActivity.pasajero.getNivel(),Toast.LENGTH_SHORT).show();
     }
 
+    public void obtenerVuelos(){
+        RequestParams parametros = new RequestParams();
+        parametros.put("accion","obtenerListaAvion" );
+        final ArrayList<Avion> elementos = new ArrayList<>();
+
+        client.post(url, parametros, new AsyncHttpResponseHandler() {
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                if(statusCode ==200){
+                    try {
+
+                        JSONArray jsonArray = new JSONArray(new String( responseBody));
+                        for (int i = 0 ; i<jsonArray.length(); i++){
+
+                            Vuelo vuelo = new Vuelo();
+                            vuelo.setId_vuelo(jsonArray.getJSONObject(i).getInt("id_vuelo"));
+                            vuelo.setOrigen(jsonArray.getJSONObject(i).getInt("origen"));
+                            vuelo.setDestino(jsonArray.getJSONObject(i).getInt("destino"));
+                            vuelo.setAvion(jsonArray.getJSONObject(i).getInt("id_avion"));
+                            vuelo.setFecha(jsonArray.getJSONObject(i).getString("fecha"));
+                            vuelo.setEconomica(jsonArray.getJSONObject(i).getDouble("costoEconomica"));
+                            vuelo.setEjecutiva(jsonArray.getJSONObject(i).getDouble("costoEjecutivo"));
+                            vuelo.setPrimera(jsonArray.getJSONObject(i).getDouble("costoPrimera"));
+                            vuelo.setModelo(jsonArray.getJSONObject(i).getString("modelo"));
+                            RegistroViajeActivity.listaVuelos.add(vuelo);
+                        }
+                    }catch (Exception e){
+                        msg("Problema: " + e.getMessage());
+                    }
+                }
+            }
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                msg("No hay contacto con la BD");
+            }
+        });
+
+    }
+
 
 public  void mandarNivel(int nivel){
 

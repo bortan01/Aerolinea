@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void goHome(View view) {
 
-        if(user.getEditText().getText().toString().equals("")){
+        /*if(user.getEditText().getText().toString().equals("")){
            msg("ingesu su nombre de usuario");
         }else if(pass.getEditText().getText().toString().equals("")){
           msg("ingrese su contraseña");
@@ -77,10 +77,10 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
-        }
+        }*/
 
-
-
+        Intent intent = new Intent(this,HomeRootActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
     }
 
     public void goCreateAccount(View view) {

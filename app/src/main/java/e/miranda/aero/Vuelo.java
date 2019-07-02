@@ -3,20 +3,20 @@ package e.miranda.aero;
 import java.util.Date;
 
 public class Vuelo {
-int id_vuelo;
-int origen;
-int destino;
-int avion;
-Date fecha;
-float economica;
-float ejecutiva;
-float primera;
-String modelo;
+    int id_vuelo;
+    int origen;
+    int destino;
+    int avion;
+    String fecha;
+    Double economica;
+    Double ejecutiva;
+    Double primera;
+    String modelo;
 
     public Vuelo() {
     }
 
-    public Vuelo(int id_vuelo, int origen, int destino, int avion, Date fecha, float economica, float ejecutiva, float primera, String modelo) {
+    public Vuelo(int id_vuelo, int origen, int destino, int avion, String fecha, Double economica, Double ejecutiva, Double primera, String modelo) {
         this.id_vuelo = id_vuelo;
         this.origen = origen;
         this.destino = destino;
@@ -60,35 +60,35 @@ String modelo;
         this.avion = avion;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
-    public float getEconomica() {
+    public Double getEconomica() {
         return economica;
     }
 
-    public void setEconomica(float economica) {
+    public void setEconomica(Double economica) {
         this.economica = economica;
     }
 
-    public float getEjecutiva() {
+    public Double getEjecutiva() {
         return ejecutiva;
     }
 
-    public void setEjecutiva(float ejecutiva) {
+    public void setEjecutiva(Double ejecutiva) {
         this.ejecutiva = ejecutiva;
     }
 
-    public float getPrimera() {
+    public Double getPrimera() {
         return primera;
     }
 
-    public void setPrimera(float primera) {
+    public void setPrimera(Double primera) {
         this.primera = primera;
     }
 
@@ -98,20 +98,5 @@ String modelo;
 
     public void setModelo(String modelo) {
         this.modelo = modelo;
-    }
-
-    @Override
-    public String toString() {
-        return "Vuelo{" +
-                "id_vuelo=" + id_vuelo +
-                ", origen=" + origen +
-                ", destino=" + destino +
-                ", avion=" + avion +
-                ", fecha=" + fecha +
-                ", economica=" + economica +
-                ", ejecutiva=" + ejecutiva +
-                ", primera=" + primera +
-                ", modelo='" + modelo + '\'' +
-                '}';
     }
 }

@@ -11,7 +11,7 @@ import java.util.Date;
 
 public class RegistroViajeActivity extends AppCompatActivity {
     ListView lista ;
-    ArrayList<Vuelo> vuelos;
+    static ArrayList<Vuelo> listaVuelos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,21 +19,13 @@ public class RegistroViajeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registro_viaje);
         lista = findViewById(R.id.lista);
 
-        Vuelo v = new Vuelo();
-        v.setAvion(2);
-        v.setDestino(3);
-        v.setEconomica(33);
-        v.setFecha(new Date());
-        v.setEjecutiva(11);
-        v.setId_vuelo(123);
 
-        vuelos = new ArrayList<>();
-        vuelos.add(v);
+        listaVuelos = new ArrayList<>();
         llenarLista();
 
     }
     private void llenarLista() {
-        final Adaptador adaptador = new Adaptador(this, R.layout.activity_custom,vuelos);
+        final Adaptador adaptador = new Adaptador(this, R.layout.activity_custom,listaVuelos);
         lista.setAdapter(adaptador);
     }
 

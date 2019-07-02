@@ -69,11 +69,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public boolean onMarkerClick(Marker marker) {
-        Toast.makeText(this, "estas en onMarclick ",Toast.LENGTH_SHORT).show();
+
         MainActivity.latitud = marker.getPosition().latitude;
         MainActivity.longitud = marker.getPosition().longitude;
-        MainActivity.vuelo = marker.getTitle();
-        MainActivity.idVuelo = (int)marker.getTag();
+
+        if(marker.getTag() != null){
+            MainActivity.idVuelo = (int)marker.getTag();
+            MainActivity.vuelo = marker.getTitle();
+        }
+
 
 
         setResult(RESULT_OK);
