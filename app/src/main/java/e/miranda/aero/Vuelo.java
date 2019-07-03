@@ -6,7 +6,8 @@ public class Vuelo {
 
     int idVuelo,idAvion ;
     Date fecha;
-    String origen, destino, modelo;
+    String origen, destino, modelo, solofecha,solohora;
+
 
     public Vuelo(int idVuelo, int idAvion, Date fecha, String origen, String destino, String modelo) {
         this.idVuelo = idVuelo;
@@ -15,6 +16,7 @@ public class Vuelo {
         this.origen = origen;
         this.destino = destino;
         this.modelo = modelo;
+
     }
 
     public Vuelo(){
@@ -67,5 +69,22 @@ public class Vuelo {
 
     public void setModelo(String modelo) {
         this.modelo = modelo;
+    }
+
+
+    public String getSolofecha() {
+        return solofecha;
+    }
+
+    public void setSolofecha(String solofecha) {
+        this.solofecha = solofecha;
+    }
+
+    public String getSolohora() {
+        return solohora;
+    }
+
+    public void setSolohora(String solohora) {
+        this.solohora = solohora;
     }
 }

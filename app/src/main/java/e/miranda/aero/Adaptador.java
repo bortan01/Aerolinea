@@ -26,12 +26,14 @@ public class Adaptador extends ArrayAdapter<Vuelo> {
             TextView fecha = convertView.findViewById(R.id.fechaCustom);
             TextView hora = convertView.findViewById(R.id.horaCustom);
             TextView avion = convertView.findViewById(R.id.avionCustom);
+            TextView despeje = convertView.findViewById(R.id.despejeCustom);
+            TextView aterrisaje = convertView.findViewById(R.id.destinoCustom);
             ImageButton btnReservar = convertView.findViewById(R.id.btnReservar);
-            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            DateFormat dateFormat2 = new SimpleDateFormat("HH:mm:ss");
-       //    fecha.setText(""+dateFormat.format(datos.getFecha()));
-       //     hora.setText(""+dateFormat2.format(datos.getFecha()));
+             fecha.setText(datos.getSolofecha());
+             hora.setText(datos.getSolohora());
             avion.setText("" + datos.getModelo());
+            despeje.setText(datos.getOrigen());
+            aterrisaje.setText(datos.getDestino());
 
             return  convertView;
         }

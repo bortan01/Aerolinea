@@ -192,19 +192,11 @@ public  class conexion {
                             vuelo.setIdAvion(jsonArray.getJSONObject(i).getInt("id_avion"));
                             vuelo.setModelo(jsonArray.getJSONObject(i).getString("modelo"));
                             String strFecha = (jsonArray.getJSONObject(i).getString("fecha"));
-                            SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-                            Date fecha = null;
-                            try {
-                                fecha = formatoDelTexto.parse(strFecha);
-                                vuelo.setFecha(fecha);
-                            } catch (ParseException ex) {
-                                ex.printStackTrace();
-                            }
-
+                            vuelo.setSolofecha(strFecha.substring(0,10));
+                            vuelo.setSolohora( strFecha.substring(strFecha.length()-8, strFecha.length()));
                             RegistroViajeActivity.listaVuelos.add(vuelo);
 
-                            Toast.makeText(context, "obtener vuelos " + i , Toast.LENGTH_SHORT).show();
+
                         }
                     }catch (Exception e){
                         msg("obtener vuelos: " + e.getMessage());

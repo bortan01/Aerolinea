@@ -22,15 +22,33 @@
         android:textStyle="bold"
         android:textColor="@color/colorPrimary"
         />
+
+    <TextView
+        android:id="@+id/reservaAqui"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Reservar"
+        android:layout_alignParentEnd="true"
+
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="casual"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        />
+
     <ImageButton
         android:id="@+id/btnReservar"
-        android:layout_marginLeft="20sp"
-        android:layout_marginTop="23sp"
+        android:layout_marginRight="40sp"
+        android:layout_marginTop="45sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@mipmap/ic_plain"
         android:onClick="onReservar"
-        android:layout_toEndOf="@id/fechaCustom"
+        android:layout_alignParentEnd="true"
         />
     <TextView
         android:id="@+id/apellido"
@@ -102,5 +120,53 @@
         android:layout_toEndOf="@id/nombre"
         android:textColor="@color/colorAccent"
         />
+    <TextView
+        android:id="@+id/origen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/genero"
+        android:text="@string/despeje"
+        android:layout_marginLeft="12sp"
+        android:fontFamily="casual"
+        android:textStyle="bold"
+        android:textColor="@android:color/holo_green_light"
+        />
+    <TextView
+        android:id="@+id/despejeCustom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/genero"
+        android:text="San Romero"
+        android:layout_marginLeft="12sp"
+        android:fontFamily="casual"
+        android:textStyle="bold"
+        android:layout_toEndOf="@id/nombre"
+        android:textColor="@android:color/holo_green_light"
+        />
+    <TextView
+        android:id="@+id/destino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/despejeCustom"
+        android:text="@string/aterrisaje"
+        android:layout_marginLeft="12sp"
+        android:fontFamily="casual"
+        android:textStyle="bold"
+        android:textColor="@android:color/holo_purple"
+        />
+    <TextView
+        android:id="@+id/destinoCustom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/despejeCustom"
+        android:text="San Romero"
+        android:layout_marginLeft="12sp"
+        android:fontFamily="casual"
+        android:textStyle="bold"
+        android:layout_toEndOf="@id/nombre"
+        android:textColor="@android:color/holo_purple"
+        />
+
+
 
 </RelativeLayout>

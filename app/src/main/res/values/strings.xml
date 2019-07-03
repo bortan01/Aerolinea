@@ -60,5 +60,6 @@
     <string name="masculino">Masculino</string>
     <string name="femenino">Femenino</string>
     <string name="ver_vuelos">Ver Vuelos Disponibles</string>
+    <string name="Reservar">Reservar</string>
 
 </resources>

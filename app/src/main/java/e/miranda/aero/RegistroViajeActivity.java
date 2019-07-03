@@ -31,9 +31,20 @@ public class RegistroViajeActivity extends AppCompatActivity {
         con.obtenerVuelos();
         Vuelo v = new Vuelo();
         v.setModelo("dddd");
-       listaVuelos.add(v);
+        v.setFecha(new Date());
+        v.setIdAvion(2);
+        v.setDestino("san verapaz");
+        v.setOrigen("por alla");
+        v.setIdVuelo(2);
+        listaVuelos.add(v);
+
+
         final Adaptador adaptador = new Adaptador(this, R.layout.activity_custom,listaVuelos);
         lista.setAdapter(adaptador);
+
+        listaVuelos.remove(0);
+        
+
     }
 
     public void onEditar(View view) {
