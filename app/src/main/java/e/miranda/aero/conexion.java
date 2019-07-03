@@ -23,6 +23,7 @@ public  class conexion {
     Context context;
     public static ArrayList<Aeropuerto> listaDatos;
 
+
     public conexion(Context context) {
         client =  new AsyncHttpClient();
        //url = "https://www.ma14049.comues.com/proyecto/conexion.php";
@@ -46,10 +47,10 @@ public  class conexion {
         });
     }
 
-    public ArrayList<Avion> obtenerAvion(){
+    public void obtenerAvion(){
         RequestParams parametros = new RequestParams();
         parametros.put("accion","obtenerListaAvion" );
-        final ArrayList<Avion> elementos = new ArrayList<>();
+
 
         client.post(url, parametros, new AsyncHttpResponseHandler() {
 
@@ -67,10 +68,10 @@ public  class conexion {
                             avionsito.setEjecutiva(jsonArray.getJSONObject(i).getInt("ejecutiva"));
                             avionsito.setPrimera(jsonArray.getJSONObject(i).getInt("primera"));
                             avionsito.setModelo(jsonArray.getJSONObject(i).getString("modelo"));
-                            elementos.add(avionsito);
+                            RegistroVueloActivity.listaAviones.add(avionsito);
                         }
                     }catch (Exception e){
-                        msg("Problema: " + e.getMessage());
+                        msg("Problema en obtener avio " + e.getMessage());
                     }
                 }
             }
@@ -79,7 +80,7 @@ public  class conexion {
                 msg("No hay contacto con la BD");
             }
         });
-        return  elementos;
+
     }
 
     public void obteneAeropuerto(){

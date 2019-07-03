@@ -33,6 +33,7 @@ public class RegistroVueloActivity extends AppCompatActivity {
     int idDespeje;
     int idAterrisaje;
     RequestParams parametros;
+    public static ArrayList<Avion> listaAviones;
 
     TextInputLayout  primera, ejecutiva,economica;
     @Override
@@ -40,6 +41,7 @@ public class RegistroVueloActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_vuelo);
         conexion = new conexion(this);
+        listaAviones = new ArrayList<>();
         fecha = findViewById(R.id.fecha);
         txtAterrisaje = findViewById(R.id.txtAterrisaje);
         txtDespeje = findViewById(R.id.txtDespeje);
@@ -51,6 +53,7 @@ public class RegistroVueloActivity extends AppCompatActivity {
         hora = findViewById(R.id.hora);
         comboAvion = findViewById(R.id.comboAvion);
         llenarComboAvion();
+        conexion.obteneAeropuerto();
         idAterrisaje = 0;
         idDespeje = 0 ;
         parametros = new RequestParams();
@@ -81,14 +84,14 @@ public class RegistroVueloActivity extends AppCompatActivity {
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 // +1 because january is zero
                 final String selectedDate = year + "-" + (month+1) + "-" + day;
-                Toast.makeText(getBaseContext(), "on date" ,Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(getBaseContext(), "on date" ,Toast.LENGTH_SHORT).show();
                 fecha.setText(selectedDate);
             }
         });
         newFragment.show(getSupportFragmentManager(), "datePicker");
     }
     private void showTimePickerDialog(){
-        Toast.makeText(getBaseContext(), "show picker" ,Toast.LENGTH_SHORT).show();
+   //     Toast.makeText(getBaseContext(), "show picker" ,Toast.LENGTH_SHORT).show();
         TimePickerFragment newFragment = TimePickerFragment.newInstance(new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
@@ -102,10 +105,10 @@ public class RegistroVueloActivity extends AppCompatActivity {
 
 
     public  void llenarComboAvion(){
-        String[] opciones = {"Mayuscula", "Minuscula"};
-        ArrayList<Avion> datos = conexion.obtenerAvion();
-        datos.add(new Avion(0,1,2,3,"Seleccione un Avion"));
-        ArrayAdapter<Avion>adapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item,datos);
+
+        conexion.obtenerAvion();
+        listaAviones.add(new Avion(0,1,2,3,"Seleccione un Avion"));
+        ArrayAdapter<Avion>adapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item,listaAviones);
         comboAvion.setAdapter(adapter);
     }
 
@@ -163,6 +166,7 @@ public class RegistroVueloActivity extends AppCompatActivity {
             parametros.put("economica",economica.getEditText().getText().toString());
             parametros.put("ejecutiva",ejecutiva.getEditText().getText().toString());
             parametros.put("primera",primera.getEditText().getText().toString());
+            parametros.put("modelo", avion.toString());
             parametros.put("accion", "guardarVuelo");
             conexion.escribir(parametros);
 
