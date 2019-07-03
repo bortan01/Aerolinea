@@ -3,93 +3,62 @@ package e.miranda.aero;
 import java.util.Date;
 
 public class Vuelo {
-    int id_vuelo;
-    int origen;
-    int destino;
-    int avion;
-    String fecha;
-    Double economica;
-    Double ejecutiva;
-    Double primera;
-    String modelo;
 
-    public Vuelo() {
-    }
+    int idVuelo,idAvion ;
+    Date fecha;
+    String origen, destino, modelo;
 
-    public Vuelo(int id_vuelo, int origen, int destino, int avion, String fecha, Double economica, Double ejecutiva, Double primera, String modelo) {
-        this.id_vuelo = id_vuelo;
+    public Vuelo(int idVuelo, int idAvion, Date fecha, String origen, String destino, String modelo) {
+        this.idVuelo = idVuelo;
+        this.idAvion = idAvion;
+        this.fecha = fecha;
         this.origen = origen;
         this.destino = destino;
-        this.avion = avion;
-        this.fecha = fecha;
-        this.economica = economica;
-        this.ejecutiva = ejecutiva;
-        this.primera = primera;
         this.modelo = modelo;
     }
 
-    public int getId_vuelo() {
-        return id_vuelo;
+    public Vuelo(){
+
     }
 
-    public void setId_vuelo(int id_vuelo) {
-        this.id_vuelo = id_vuelo;
+    public int getIdVuelo() {
+        return idVuelo;
     }
 
-    public int getOrigen() {
-        return origen;
+    public void setIdVuelo(int idVuelo) {
+        this.idVuelo = idVuelo;
     }
 
-    public void setOrigen(int origen) {
-        this.origen = origen;
+    public int getIdAvion() {
+        return idAvion;
     }
 
-    public int getDestino() {
-        return destino;
+    public void setIdAvion(int idAvion) {
+        this.idAvion = idAvion;
     }
 
-    public void setDestino(int destino) {
-        this.destino = destino;
-    }
-
-    public int getAvion() {
-        return avion;
-    }
-
-    public void setAvion(int avion) {
-        this.avion = avion;
-    }
-
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
-    public Double getEconomica() {
-        return economica;
+    public String getOrigen() {
+        return origen;
     }
 
-    public void setEconomica(Double economica) {
-        this.economica = economica;
+    public void setOrigen(String origen) {
+        this.origen = origen;
     }
 
-    public Double getEjecutiva() {
-        return ejecutiva;
+    public String getDestino() {
+        return destino;
     }
 
-    public void setEjecutiva(Double ejecutiva) {
-        this.ejecutiva = ejecutiva;
-    }
-
-    public Double getPrimera() {
-        return primera;
-    }
-
-    public void setPrimera(Double primera) {
-        this.primera = primera;
+    public void setDestino(String destino) {
+        this.destino = destino;
     }
 
     public String getModelo() {

@@ -12,7 +12,10 @@ import com.loopj.android.http.RequestParams;
 
 import org.json.JSONArray;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -178,20 +181,27 @@ public  class conexion {
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if(statusCode ==200){
                     try {
-
+                        RegistroViajeActivity.listaVuelos.clear();
                         JSONArray jsonArray = new JSONArray(new String( responseBody));
                         for (int i = 0 ; i<jsonArray.length(); i++){
 
                             Vuelo vuelo = new Vuelo();
-                            vuelo.setId_vuelo(jsonArray.getJSONObject(i).getInt("id_vuelo"));
-                            vuelo.setOrigen(jsonArray.getJSONObject(i).getInt("origen"));
-                            vuelo.setDestino(jsonArray.getJSONObject(i).getInt("destino"));
-                            vuelo.setAvion(jsonArray.getJSONObject(i).getInt("id_avion"));
-                            vuelo.setFecha(jsonArray.getJSONObject(i).getString("fecha"));
-                            vuelo.setEconomica(jsonArray.getJSONObject(i).getDouble("costoEconomica"));
-                            vuelo.setEjecutiva(jsonArray.getJSONObject(i).getDouble("costoEjecutivo"));
-                            vuelo.setPrimera(jsonArray.getJSONObject(i).getDouble("costoPrimera"));
+                            vuelo.setIdVuelo(jsonArray.getJSONObject(i).getInt("id_vuelo"));
+                            vuelo.setOrigen(jsonArray.getJSONObject(i).getString("origen"));
+                            vuelo.setDestino(jsonArray.getJSONObject(i).getString("destino"));
+                            vuelo.setIdAvion(jsonArray.getJSONObject(i).getInt("id_avion"));
                             vuelo.setModelo(jsonArray.getJSONObject(i).getString("modelo"));
+                            String strFecha = (jsonArray.getJSONObject(i).getString("fecha"));
+                            SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+                            Date fecha = null;
+                            try {
+                                fecha = formatoDelTexto.parse(strFecha);
+                                vuelo.setFecha(fecha);
+                            } catch (ParseException ex) {
+                                ex.printStackTrace();
+                            }
+
                             RegistroViajeActivity.listaVuelos.add(vuelo);
 
                             Toast.makeText(context, "obtener vuelos " + i , Toast.LENGTH_SHORT).show();

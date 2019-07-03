@@ -29,8 +29,8 @@ public class Adaptador extends ArrayAdapter<Vuelo> {
             ImageButton btnReservar = convertView.findViewById(R.id.btnReservar);
             DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             DateFormat dateFormat2 = new SimpleDateFormat("HH:mm:ss");
-         //   fecha.setText(""+dateFormat.format(datos.getFecha()));
-         //   hora.setText(""+dateFormat2.format(datos.getFecha()));
+       //    fecha.setText(""+dateFormat.format(datos.getFecha()));
+       //     hora.setText(""+dateFormat2.format(datos.getFecha()));
             avion.setText("" + datos.getModelo());
 
             return  convertView;
