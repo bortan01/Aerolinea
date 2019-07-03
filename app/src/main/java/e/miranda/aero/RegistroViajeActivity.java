@@ -12,19 +12,29 @@ import java.util.Date;
 public class RegistroViajeActivity extends AppCompatActivity {
     ListView lista ;
     static ArrayList<Vuelo> listaVuelos;
+    conexion con ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_viaje);
         lista = findViewById(R.id.lista);
-
+        con = new conexion(this);
 
         listaVuelos = new ArrayList<>();
+        con.obtenerVuelos();
+
         llenarLista();
 
     }
     private void llenarLista() {
+        con.obtenerVuelos();
+        Vuelo v = new Vuelo();
+        v.setModelo("dddd");
+        v.setPrimera(342.3);
+        v.setEjecutiva(33.3);
+        v.setFecha("342342");
+        listaVuelos.add(v);
         final Adaptador adaptador = new Adaptador(this, R.layout.activity_custom,listaVuelos);
         lista.setAdapter(adaptador);
     }

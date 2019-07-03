@@ -169,8 +169,8 @@ public  class conexion {
 
     public void obtenerVuelos(){
         RequestParams parametros = new RequestParams();
-        parametros.put("accion","obtenerListaAvion" );
-        final ArrayList<Avion> elementos = new ArrayList<>();
+        parametros.put("accion","obtenerListaVuelos" );
+
 
         client.post(url, parametros, new AsyncHttpResponseHandler() {
 
@@ -193,9 +193,11 @@ public  class conexion {
                             vuelo.setPrimera(jsonArray.getJSONObject(i).getDouble("costoPrimera"));
                             vuelo.setModelo(jsonArray.getJSONObject(i).getString("modelo"));
                             RegistroViajeActivity.listaVuelos.add(vuelo);
+
+                            Toast.makeText(context, "obtener vuelos " + i , Toast.LENGTH_SHORT).show();
                         }
                     }catch (Exception e){
-                        msg("Problema: " + e.getMessage());
+                        msg("obtener vuelos: " + e.getMessage());
                     }
                 }
             }
