@@ -39,7 +39,8 @@
             android:label="@string/title_activity_maps" />
         <activity android:name=".RegistroAvionActivity" />
         <activity android:name=".RegistroVueloActivity" />
-        <activity android:name=".RegistroUsiarioActivity"></activity>
+        <activity android:name=".RegistroUsiarioActivity" />
+        <activity android:name=".HomePasajeroActivity"></activity>
     </application>
 
 </manifest>

@@ -1,6 +1,8 @@
 package e.miranda.aero;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -8,9 +10,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import org.json.JSONArray;
+
 import java.util.ArrayList;
+
+import cz.msebera.android.httpclient.Header;
 
 public class MainActivity extends AppCompatActivity {
     public static double latitud;
@@ -20,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     public static int  idVuelo;
     public static Pasajero pasajero ;
     TextInputLayout user,pass;
+    AsyncHttpClient client ;
+    String url ;
 
 
     public static ArrayList<Aeropuerto> listaAeropuertos;
@@ -31,23 +41,24 @@ public class MainActivity extends AppCompatActivity {
         listaAeropuertos = new ArrayList<>();
         con = new conexion(this);
         con.obteneAeropuerto();
-        pasajero = new Pasajero();
         user = findViewById(R.id.username);
         pass = findViewById(R.id.password);
         RequestParams parametros = new RequestParams();
-        parametros.put("user", "00000" );
-        parametros.put("pass", "00000");
-        con.obtenerLogin(parametros);
+        pasajero = new Pasajero();
+        pasajero.setNivel(100);
+        client =  new AsyncHttpClient();
+        //url = "https://www.ma14049.comues.com/proyecto/conexion.php";
+        url = "http://192.168.56.1/proyecto/conexion.php";
+
 
     }
 
     public void goHome(View view) {
 
         if(user.getEditText().getText().toString().equals("")){
-            user.setError("ingrese su usuario");
+           msg("ingesu su nombre de usuario");
         }else if(pass.getEditText().getText().toString().equals("")){
-            pass.setError("ingrese su pass");
-            user.setErrorEnabled(false);
+          msg("ingrese su contraseña");
         }else{
             RequestParams parametros = new RequestParams();
             parametros.put("user", user.getEditText().getText().toString());
@@ -57,6 +68,9 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,"nivel " +pasajero.getNivel(),Toast.LENGTH_SHORT).show();
 
             if(pasajero.getNivel() ==1){
+                Intent intent = new Intent(this,HomeRootActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+            }else if(pasajero.getNivel() == 0){
                 Intent intent = new Intent(this,HomeRootActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
             }
@@ -72,4 +86,20 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,RegistroUsiarioActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);
     }
+    private void msg(String texto) {
+        AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
+        dialogo.setTitle("INFORMACION");
+        dialogo.setMessage(texto);
+        dialogo.setPositiveButton("aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                ////aqui se pone la accion si da click en aceptar
+            }
+        });
+
+        dialogo.show();
+    }
+
+
+
 }

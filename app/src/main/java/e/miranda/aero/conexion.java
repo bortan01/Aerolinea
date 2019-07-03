@@ -137,8 +137,7 @@ public  class conexion {
     public void obtenerLogin(RequestParams parametros){
 
         parametros.put("accion","consultarLogin" );
-        final ArrayList<Avion> elementos = new ArrayList<>();
-
+  
         client.post(url, parametros, new AsyncHttpResponseHandler() {
 
             @Override
@@ -165,6 +164,8 @@ public  class conexion {
         });
 
     }
+
+
 
 
 }
