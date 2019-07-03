@@ -24,12 +24,18 @@
             android:layout_weight="0.6"
             >
 
-            <ImageView
+            <TextView
                 android:id="@+id/logo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:background="@drawable/platzigram"
+                android:text="@string/InicioSecion"
+                android:fontFamily="casual"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:textSize="50sp"
+                android:textColor="@android:color/background_light"
+
                 />
 
         </RelativeLayout>

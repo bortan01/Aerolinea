@@ -64,5 +64,6 @@
     <string name="primera">Primera</string>
     <string name="Ejecutiva">Ejecutiva</string>
     <string name="Economica">Economica</string>
+    <string name="InicioSecion">Inicio de Sesión</string>
 
 </resources>

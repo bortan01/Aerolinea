@@ -6,8 +6,31 @@ public class Vuelo {
 
     int idVuelo,idAvion ;
     Date fecha;
-    String origen, destino, modelo, solofecha,solohora;
+    String origen, destino, modelo, solofecha,solohora,economica,ejecutiva,primera;
 
+    public String getEconomica() {
+        return economica;
+    }
+
+    public void setEconomica(String economica) {
+        this.economica = economica;
+    }
+
+    public String getEjecutiva() {
+        return ejecutiva;
+    }
+
+    public void setEjecutiva(String ejecutiva) {
+        this.ejecutiva = ejecutiva;
+    }
+
+    public String getPrimera() {
+        return primera;
+    }
+
+    public void setPrimera(String primera) {
+        this.primera = primera;
+    }
 
     public Vuelo(int idVuelo, int idAvion, Date fecha, String origen, String destino, String modelo) {
         this.idVuelo = idVuelo;

@@ -28,13 +28,25 @@ public class Adaptador extends ArrayAdapter<Vuelo> {
             TextView avion = convertView.findViewById(R.id.avionCustom);
             TextView despeje = convertView.findViewById(R.id.despejeCustom);
             TextView aterrisaje = convertView.findViewById(R.id.destinoCustom);
+            TextView economica = convertView.findViewById(R.id.EconomicaCustom);
+            TextView ejecutiva = convertView.findViewById(R.id.ejecutivoCustom);
+            TextView primera = convertView.findViewById(R.id.primeraCustom);
+
             ImageButton btnReservar = convertView.findViewById(R.id.btnReservar);
+
+
+
              fecha.setText(datos.getSolofecha());
              hora.setText(datos.getSolohora());
             avion.setText("" + datos.getModelo());
             despeje.setText(datos.getOrigen());
             aterrisaje.setText(datos.getDestino());
             btnReservar.setTag(datos.getIdVuelo());
+            economica.setText(datos.getEconomica());
+            ejecutiva.setText(datos.getEjecutiva());
+            primera.setText(datos.getPrimera());
+
+
             return  convertView;
         }
         return  convertView;

@@ -154,7 +154,7 @@ public  class conexion {
                             MainActivity.pasajero = new Pasajero();
                             MainActivity.pasajero.setId_pasajero(jsonArray.getJSONObject(i).getInt("id_pasajero"));
                             MainActivity.pasajero.setNivel(jsonArray.getJSONObject(i).getInt("nivel"));
-                            Toast.makeText(context, "el nivel dentro de try es " + MainActivity.pasajero.getNivel(),Toast.LENGTH_SHORT).show();
+                         //   Toast.makeText(context, "el nivel dentro de try es " + MainActivity.pasajero.getNivel(),Toast.LENGTH_SHORT).show();
 
                         }
                     }catch (Exception e){
@@ -167,7 +167,7 @@ public  class conexion {
                 msg("No hay contacto con la BD");
             }
         });
-        Toast.makeText(context, "el nivel ahora es  " + MainActivity.pasajero.getNivel(),Toast.LENGTH_SHORT).show();
+     //   Toast.makeText(context, "el nivel ahora es  " + MainActivity.pasajero.getNivel(),Toast.LENGTH_SHORT).show();
     }
 
     public void obtenerVuelos(){
@@ -191,6 +191,9 @@ public  class conexion {
                             vuelo.setDestino(jsonArray.getJSONObject(i).getString("destino"));
                             vuelo.setIdAvion(jsonArray.getJSONObject(i).getInt("id_avion"));
                             vuelo.setModelo(jsonArray.getJSONObject(i).getString("modelo"));
+                            vuelo.setEconomica("Primera Economica $"+jsonArray.getJSONObject(i).getDouble("costoEconomica"));
+                            vuelo.setEjecutiva("Clase Ejecutiva $"+jsonArray.getJSONObject(i).getString("costoEjecutivo"));
+                            vuelo.setPrimera("Primera Clase $"+jsonArray.getJSONObject(i).getString("costoPrimera"));
                             String strFecha = (jsonArray.getJSONObject(i).getString("fecha"));
                             vuelo.setSolofecha(strFecha.substring(0,10));
                             vuelo.setSolohora( strFecha.substring(strFecha.length()-8, strFecha.length()));

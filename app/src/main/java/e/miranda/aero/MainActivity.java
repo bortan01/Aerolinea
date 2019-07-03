@@ -14,7 +14,6 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
-import org.json.JSONArray;
 
 import java.util.ArrayList;
 
@@ -55,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void goHome(View view) {
 
-        /*if(user.getEditText().getText().toString().equals("")){
+        if(user.getEditText().getText().toString().equals("")){
            msg("ingesu su nombre de usuario");
         }else if(pass.getEditText().getText().toString().equals("")){
           msg("ingrese su contraseña");
@@ -65,22 +64,21 @@ public class MainActivity extends AppCompatActivity {
             parametros.put("pass", pass.getEditText().getText().toString());
             con.obtenerLogin(parametros);
 
-            Toast.makeText(this,"nivel es" +pasajero.getNivel(),Toast.LENGTH_SHORT).show();
+           // Toast.makeText(this,"nivel es" +pasajero.getNivel(),Toast.LENGTH_SHORT).show();
 
             if(pasajero.getNivel() ==1){
                 Intent intent = new Intent(this,HomeRootActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
             }else if(pasajero.getNivel() == 0){
-                Toast.makeText(this,"nivel es pasajero " +pasajero.getNivel(),Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(this,"nivel es pasajero " +pasajero.getNivel(),Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this,HomePasajeroActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
             }
 
 
-        }*/
+        }
 
-        Intent intent = new Intent(this,HomePasajeroActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        startActivity(intent);
+
     }
 
     public void goCreateAccount(View view) {
