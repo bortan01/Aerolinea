@@ -43,7 +43,7 @@ public class RegistroViajeActivity extends AppCompatActivity {
         lista.setAdapter(adaptador);
 
         listaVuelos.remove(0);
-        
+
 
     }
 

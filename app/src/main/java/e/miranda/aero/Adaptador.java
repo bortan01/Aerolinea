@@ -34,7 +34,7 @@ public class Adaptador extends ArrayAdapter<Vuelo> {
             avion.setText("" + datos.getModelo());
             despeje.setText(datos.getOrigen());
             aterrisaje.setText(datos.getDestino());
-
+            btnReservar.setTag(datos.getIdVuelo());
             return  convertView;
         }
         return  convertView;

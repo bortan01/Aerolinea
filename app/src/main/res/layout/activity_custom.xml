@@ -167,6 +167,40 @@
         android:textColor="@android:color/holo_purple"
         />
 
-
+    <TextView
+    android:id="@+id/EconomicaCustom"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/destino"
+    android:text="Clase economica $11111"
+    android:layout_marginLeft="12sp"
+    android:fontFamily="casual"
+    android:textStyle="bold"
+    android:textColor="@android:color/holo_blue_bright"
+    />
+    <TextView
+        android:id="@+id/ejecutivoCustom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/destino"
+        android:text="Clase economica $11111"
+        android:layout_marginLeft="72sp"
+        android:fontFamily="casual"
+        android:layout_toEndOf="@id/EconomicaCustom"
+        android:textStyle="bold"
+        android:textColor="@android:color/holo_red_light"
+        />
+    <TextView
+        android:id="@+id/primeraCustom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ejecutivoCustom"
+        android:text="Clase economica $11111"
+        android:layout_marginLeft="12sp"
+        android:fontFamily="casual"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textColor="@android:color/holo_orange_dark"
+        />
 
 </RelativeLayout>

@@ -61,5 +61,8 @@
     <string name="femenino">Femenino</string>
     <string name="ver_vuelos">Ver Vuelos Disponibles</string>
     <string name="Reservar">Reservar</string>
+    <string name="primera">Primera</string>
+    <string name="Ejecutiva">Ejecutiva</string>
+    <string name="Economica">Economica</string>
 
 </resources>

@@ -13,5 +13,8 @@ public class CustomActivity extends AppCompatActivity {
     }
 
     public void onReservar(View view) {
+        String idVuelo = (String.valueOf(view.getTag()));
+
+
     }
 }
