@@ -46,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
         pasajero = new Pasajero();
         pasajero.setNivel(100);
         client =  new AsyncHttpClient();
-        //url = "https://www.ma14049.comues.com/proyecto/conexion.php";
-        url = "http://192.168.56.1/proyecto/conexion.php";
+        url = "https://www.ma14049.comues.com/accesoremoto/conexion.php";
+     //  url = "http://192.168.56.1/proyecto/conexion.php";
 
 
     }

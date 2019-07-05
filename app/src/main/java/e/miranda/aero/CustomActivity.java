@@ -14,9 +14,9 @@ public class CustomActivity extends AppCompatActivity {
 
     public void onReservar(View view) {
      //   String idVuelo = (String.valueOf(view.getTag()));
-        RegistroViajeActivity.primera.setEnabled(true);
-        RegistroViajeActivity.ejecutiva.setEnabled(true);
-        RegistroViajeActivity.economica.setEnabled(true);
+     //  RegistroViajeActivity.primera.setEnabled(true);
+      //  RegistroViajeActivity.ejecutiva.setEnabled(true);
+      //  RegistroViajeActivity.economica.setEnabled(true);
 
     }
 }

@@ -4,10 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ListView;
-
-import com.loopj.android.http.RequestParams;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,9 +12,7 @@ import java.util.Date;
 public class RegistroViajeActivity extends AppCompatActivity {
     ListView lista ;
     static ArrayList<Vuelo> listaVuelos;
-    String idVuelo;
     conexion con ;
-    public  static Button primera,ejecutiva,economica;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,14 +20,7 @@ public class RegistroViajeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registro_viaje);
         lista = findViewById(R.id.lista);
         con = new conexion(this);
-        primera = findViewById(R.id.btnPrimera);
-        ejecutiva = findViewById(R.id.btnEjecuta);
-        economica = findViewById(R.id.btnEconomica);
 
-        primera.setEnabled(false);
-        ejecutiva.setEnabled(false);
-        economica.setEnabled(false);
-        idVuelo = "";
         listaVuelos = new ArrayList<>();
         con.obtenerVuelos();
 
@@ -59,40 +47,13 @@ public class RegistroViajeActivity extends AppCompatActivity {
 
     }
 
-
-    public void onReservar(View view) {
-        idVuelo = (String.valueOf(view.getTag()));
-        RegistroViajeActivity.primera.setEnabled(true);
-        RegistroViajeActivity.ejecutiva.setEnabled(true);
-        RegistroViajeActivity.economica.setEnabled(true);
-
-    }
-
-
-    public void Guardar(String clase){
-        RequestParams parametros = new RequestParams();
-        parametros.put("idVuelo", idVuelo);
-        parametros.put("idPasajero", MainActivity.pasajero.getId_pasajero());
-        parametros.put("clase", clase);
-        parametros.put("accion" , "guardarViaje");
-        con.escribir(parametros);
-
-        primera.setEnabled(false);
-        ejecutiva.setEnabled(false);
-        economica.setEnabled(false);
-
-
-    }
-
-    public void onPrimera(View view) {
-        Guardar("Primera Clase");
-    }
-
-    public void onEjecutiva(View view) {
-        Guardar("Clase Ejecutiva");
-    }
-
-    public void onEconomica(View view) {
-        Guardar("Clase Economimca");
+    public void onEditar(View view) {
+        ///recuperamos los datos de la lista usando el tag, de el boton donde se
+        //selecciono, en su interior tiene el id del elemento, el cual
+        // ocuparemos para hacer la consulta a la base de datos
+        // Vuelo d = MainActivity.conexionSQLite.consultar(String.valueOf(view.getTag()));
+        // Intent intent = new Intent(getBaseContext(),EditarActivity.class);
+        // intent.putExtra("clase", d);
+        // startActivity(intent);
     }
 }

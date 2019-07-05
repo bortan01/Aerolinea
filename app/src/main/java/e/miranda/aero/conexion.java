@@ -29,8 +29,8 @@ public  class conexion {
 
     public conexion(Context context) {
         client =  new AsyncHttpClient();
-       //url = "https://www.ma14049.comues.com/proyecto/conexion.php";
-        url = "http://192.168.56.1/proyecto/conexion.php";
+        url = "https://www.ma14049.comues.com/accesoremoto/conexion.php";
+       // url = "http://192.168.56.1/proyecto/conexion.php";
         this.context = context;
         listaDatos = new ArrayList<>();
     }
@@ -89,7 +89,7 @@ public  class conexion {
     public void obteneAeropuerto(){
         RequestParams parametros = new RequestParams();
         parametros.put("accion","obtenerListaAeropuerto" );
-        final ArrayList<Avion> elementos = new ArrayList<>();
+         ArrayList<Avion> elementos = new ArrayList<>();
 
         client.post(url, parametros, new AsyncHttpResponseHandler() {
 
@@ -107,7 +107,7 @@ public  class conexion {
                             aero.setLongitud(jsonArray.getJSONObject(i).getDouble("longitud"));
                             aero.setLatiutd(jsonArray.getJSONObject(i).getDouble("latitud"));
                             MainActivity.listaAeropuertos.add(aero);
-                //            Toast.makeText(context, "ciclo " + aero.getNombre(),Toast.LENGTH_SHORT).show();
+                            //            Toast.makeText(context, "ciclo " + aero.getNombre(),Toast.LENGTH_SHORT).show();
                         }
                     }catch (Exception e){
                         msg("Problema: " + e.getMessage());
@@ -154,7 +154,7 @@ public  class conexion {
                             MainActivity.pasajero = new Pasajero();
                             MainActivity.pasajero.setId_pasajero(jsonArray.getJSONObject(i).getInt("id_pasajero"));
                             MainActivity.pasajero.setNivel(jsonArray.getJSONObject(i).getInt("nivel"));
-                         //   Toast.makeText(context, "el nivel dentro de try es " + MainActivity.pasajero.getNivel(),Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "el nivel dentro de try es " + MainActivity.pasajero.getNivel(),Toast.LENGTH_SHORT).show();
 
                         }
                     }catch (Exception e){
@@ -167,7 +167,7 @@ public  class conexion {
                 msg("No hay contacto con la BD");
             }
         });
-     //   Toast.makeText(context, "el nivel ahora es  " + MainActivity.pasajero.getNivel(),Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "el nivel ahora es  " + MainActivity.pasajero.getNivel(),Toast.LENGTH_SHORT).show();
     }
 
     public void obtenerVuelos(){
@@ -191,9 +191,6 @@ public  class conexion {
                             vuelo.setDestino(jsonArray.getJSONObject(i).getString("destino"));
                             vuelo.setIdAvion(jsonArray.getJSONObject(i).getInt("id_avion"));
                             vuelo.setModelo(jsonArray.getJSONObject(i).getString("modelo"));
-                            vuelo.setEconomica("Primera Economica $"+jsonArray.getJSONObject(i).getDouble("costoEconomica"));
-                            vuelo.setEjecutiva("Clase Ejecutiva $"+jsonArray.getJSONObject(i).getString("costoEjecutivo"));
-                            vuelo.setPrimera("Primera Clase $"+jsonArray.getJSONObject(i).getString("costoPrimera"));
                             String strFecha = (jsonArray.getJSONObject(i).getString("fecha"));
                             vuelo.setSolofecha(strFecha.substring(0,10));
                             vuelo.setSolohora( strFecha.substring(strFecha.length()-8, strFecha.length()));
@@ -215,8 +212,8 @@ public  class conexion {
     }
 
 
-public  void mandarNivel(int nivel){
+    public  void mandarNivel(int nivel){
 
-}
+    }
 
 }
